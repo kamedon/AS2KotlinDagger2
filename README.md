@@ -10,3 +10,6 @@
 どうもAppComponentの
 @Component(modules = {AppModule.class})
 でエラーがでるようだ
+
+どうも、daggar2.2 -> 2.3 の時に発生したエラーのようだ。。。
+https://github.com/google/dagger/issues/356
