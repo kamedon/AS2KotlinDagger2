@@ -3,6 +3,7 @@ package com.example.kamedon.sample20
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.example.kamedon.sample20.print.PrintInterface
+import di.ActivityModule
 import javax.inject.Inject
 import javax.inject.Named
 
@@ -18,8 +19,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        (application as KotlinApplication).appComponent.inject(this)
-        //
+        (application as KotlinApplication).appComponent.plus(ActivityModule(this)).inject(this)
         log.print("logからhoge");
         toast.print("toastからhoge");
     }

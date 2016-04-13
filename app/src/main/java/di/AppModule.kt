@@ -20,18 +20,4 @@ class AppModule(val application: Application) {
     @Singleton
     fun provideApplicationContext() = application.applicationContext
 
-    @Named("Toast")
-    @Provides
-    @Singleton
-    fun provideToast(context: Context): PrintInterface {
-        return ToastPrint(context);
-    }
-
-    @Named("Log")
-    @Provides
-    @Singleton
-    fun provideLog(): PrintInterface {
-        return LogPrint();
-    }
-
 }

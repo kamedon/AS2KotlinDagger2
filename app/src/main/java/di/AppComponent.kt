@@ -1,7 +1,8 @@
 package com.example.kamedon.sample20.di
 
-import com.example.kamedon.sample20.MainActivity
 import dagger.Component
+import di.ActivityComponent
+import di.ActivityModule
 import javax.inject.Singleton
 
 /**
@@ -10,5 +11,5 @@ import javax.inject.Singleton
 @Singleton
 @Component(modules = arrayOf(AppModule::class))
 interface AppComponent {
-    fun inject(activity: MainActivity)
+    fun plus(activityModule: ActivityModule): ActivityComponent
 }
