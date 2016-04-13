@@ -1,9 +1,9 @@
-package com.kamedon.kotlindagger2sample.di
+package com.example.kamedon.sample20.di
 
 import android.app.Application
 import android.content.Context
-import com.kamedon.kotlindagger2sample.print.PrintInterface
-import com.kamedon.kotlindagger2sample.print.ToastPrint
+import com.example.kamedon.sample20.print.PrintInterface
+import com.example.kamedon.sample20.print.ToastPrint
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

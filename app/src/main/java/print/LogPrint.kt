@@ -1,4 +1,4 @@
-package com.kamedon.kotlindagger2sample.print
+package com.example.kamedon.sample20.print
 
 import android.util.Log
 
