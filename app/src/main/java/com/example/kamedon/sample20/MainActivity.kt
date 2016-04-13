@@ -8,8 +8,11 @@ import javax.inject.Named
 
 class MainActivity : AppCompatActivity() {
 
+    @field:[Inject Named("Log")]
+    lateinit var log: PrintInterface
+
     @field:[Inject Named("Toast")]
-    lateinit var print: PrintInterface
+    lateinit var toast: PrintInterface
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         (application as KotlinApplication).appComponent.inject(this)
         //
-        print.print("hoge");
-
+        log.print("logからhoge");
+        toast.print("toastからhoge");
     }
 }
