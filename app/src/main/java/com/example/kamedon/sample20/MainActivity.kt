@@ -4,10 +4,11 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.example.kamedon.sample20.print.PrintInterface
 import javax.inject.Inject
+import javax.inject.Named
 
 class MainActivity : AppCompatActivity() {
 
-    @Inject lateinit var print: PrintInterface
+    @Inject @Named("log") lateinit var print: PrintInterface
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

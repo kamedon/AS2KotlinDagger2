@@ -2,10 +2,12 @@ package com.example.kamedon.sample20.di
 
 import android.app.Application
 import android.content.Context
+import com.example.kamedon.sample20.print.LogPrint
 import com.example.kamedon.sample20.print.PrintInterface
 import com.example.kamedon.sample20.print.ToastPrint
 import dagger.Module
 import dagger.Provides
+import javax.inject.Named
 import javax.inject.Singleton
 
 /**
@@ -18,10 +20,18 @@ class AppModule(val application: Application) {
     @Singleton
     fun provideApplicationContext() = application.applicationContext
 
+    @Named("Toast")
     @Provides
     @Singleton
-    fun providePrint(context: Context): PrintInterface {
+    fun provideToast(context: Context): PrintInterface {
         return ToastPrint(context);
+    }
+
+    @Named("Log")
+    @Provides
+    @Singleton
+    fun provideLog(): PrintInterface {
+        return LogPrint();
     }
 
 }
