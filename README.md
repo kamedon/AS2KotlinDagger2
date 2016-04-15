@@ -20,3 +20,5 @@ Error:com.example.kamedon.sample20.print.PrintInterface cannot be provided witho
       com.example.kamedon.sample20.MainActivity.print
           [injected field of type: com.example.kamedon.sample20.print.PrintInterface print]
           
+Qiita
+http://qiita.com/kamedon39/items/d530cf69369cc4371a3f
