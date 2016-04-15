@@ -12,5 +12,14 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:layout_centerInParent="true"
+        android:text="MainActivity" />
+
+
+    <Button
+        android:id="@+id/btn_go_second"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="go second activity" />
+
 </RelativeLayout>

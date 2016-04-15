@@ -1,6 +1,5 @@
 package com.example.kamedon.sample20
 
-import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
@@ -10,8 +9,10 @@ import rand.RandCache
 import javax.inject.Inject
 import javax.inject.Named
 
-class MainActivity : AppCompatActivity() {
-
+/**
+ * Created by kamedon on 4/15/16.
+ */
+class SecondActivity : AppCompatActivity() {
     @field:[Inject Named("Log")]
     lateinit var log: PrintInterface
 
@@ -32,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_second)
         (application as KotlinApplication).appComponent.plus(ActivityModule(this)).inject(this)
         /*
            RandCacheはActivyScopeの設定してる
@@ -42,9 +43,6 @@ class MainActivity : AppCompatActivity() {
         Log.d("rand", "rand:ActivityScope:${randActivityScope.rand}:${randActivityScope2.rand}:${(randActivityScope.equals(randActivityScope2))}");
         log.print("logからhoge");
         toast.print("toastからhoge");
-
-        findViewById(R.id.btn_go_second)?.setOnClickListener {
-            startActivity(Intent(applicationContext, SecondActivity::class.java))
-        }
     }
+
 }

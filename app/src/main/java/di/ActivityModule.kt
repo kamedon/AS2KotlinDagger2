@@ -6,6 +6,7 @@ package di
 
 import android.app.Activity
 import android.content.Context
+import android.util.Log
 import com.example.kamedon.sample20.print.LogPrint
 import com.example.kamedon.sample20.print.PrintInterface
 import com.example.kamedon.sample20.print.ToastPrint
@@ -14,29 +15,46 @@ import javax.inject.Singleton
 import dagger.Component
 import dagger.Module
 import dagger.Provides
+import rand.RandCache
 import javax.inject.Named
 
 @Module
 class ActivityModule(val activity: Activity) {
 
     @Provides
-    @Singleton
-    fun provideActivity(): Activity {
-        return activity
-    }
+    @ActivityScope
+    fun provideActivity(): Activity = activity
 
     @Named("Toast")
     @Provides
-    @Singleton
-    fun provideToast(context: Context): PrintInterface {
-        return ToastPrint(context);
+    @ActivityScope
+    fun provideToast(context: Context, @Named("CacheActivityScope") randCache: RandCache): PrintInterface {
+        /*
+           RandCacheはActivityScopeの設定してる
+           Activity間で使いまわせてるかチェック
+         */
+        Log.d("rand", "toast:${randCache.rand}");
+        return ToastPrint(context)
     }
 
     @Named("Log")
     @Provides
-    @Singleton
-    fun provideLog(): PrintInterface {
-        return LogPrint();
+    @ActivityScope
+    fun provideLog(@Named("CacheActivityScope") randCache: RandCache): PrintInterface {
+        /*
+           RandCacheはActivityScopeの設定してる
+           Activity間で使いまわせてるかチェック
+         */
+        Log.d("rand", "log:${randCache.rand}");
+        return LogPrint()
     }
 
+    @Named("CacheActivityScope")
+    @Provides
+    @ActivityScope
+    fun provideRandCacheScope(): RandCache = RandCache()
+
+    @Named("CacheNotScope")
+    @Provides
+    fun provideRandCacheNotScope(): RandCache = RandCache()
 }
