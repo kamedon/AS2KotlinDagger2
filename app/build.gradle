@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 23
@@ -22,9 +23,6 @@ android {
         main.java.srcDirs += 'src/main/kotlin'
     }
 }
-kapt {
-    generateStubs = true
-}
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
@@ -32,13 +30,13 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.3.0'
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
-    compile 'com.google.dagger:dagger:2.2'
-    kapt 'com.google.dagger:dagger-compiler:2.2'
+    compile 'com.google.dagger:dagger:2.6.1'
+    kapt 'com.google.dagger:dagger-compiler:2.6.1'
 //    compile 'javax.annotation:javax.annotation-api:1.2'
     provided 'org.glassfish:javax.annotation:10.0-b28'
 }
 buildscript {
-    ext.kotlin_version = '1.0.3'
+    ext.kotlin_version = '1.0.4'
     repositories {
         mavenCentral()
     }
