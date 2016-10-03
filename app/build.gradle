@@ -38,7 +38,7 @@ dependencies {
     provided 'org.glassfish:javax.annotation:10.0-b28'
 }
 buildscript {
-    ext.kotlin_version = '1.0.1-2'
+    ext.kotlin_version = '1.0.3'
     repositories {
         mavenCentral()
     }
